@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Para Samara ❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Pinyon+Script&family=Indie+Flower&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/howler@2.2.4/dist/howler.min.js"></script>
+</head>
+<body>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+    
+    <!-- Background Music -->
+    <audio id="bg-music" loop preload="metadata">
+        <source src="https://assets.mixkit.co/music/preview/mixkit-romantic-piano-528.mp3" type="audio/mpeg">
+    </audio>
+    
+    <!-- Music Control Button -->
+    <button id="music-toggle" aria-label="Controlar música" type="button">
+        🔇
+    </button>
+
+    <!-- Background Layer for Maguje -->
+    <div id="bg-layer"></div>
+
+    <!-- Seção 1: Intro -->
+    <section class="hero" id="hero">
+        <div class="content" data-aos="fade-up" data-aos-duration="1500">
+            <h2 class="subtitle">Uma mensagem especial...</h2>
+            <h1 class="title">Para Samara</h1>
+            <div class="scroll-indicator">
+                <span>Role para baixo</span>
+                <div class="arrow">↓</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 2: A História / Foto -->
+    <section class="story" id="story">
+        <div class="container">
+            <div class="photo-container" data-aos="zoom-in" data-aos-duration="1500">
+                <div class="photo-frame">
+                    <img src="assets/casal.jpg" alt="Breno e Samara">
+                </div>
+            </div>
+            <div class="text-content" data-aos="fade-left" data-aos-delay="300">
+                <h3>Nós dois...</h3>
+                <p>Desde que nos conhecemos, cada momento tem sido único.</p>
+                <p>Você torna meus dias mais felizes e coloridos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 2.5: Tempo Juntos -->
+    <section class="timer-section" id="timer">
+        <div class="timer-container" data-aos="fade-up">
+            <h2 class="section-title">Juntos há...</h2>
+            <div id="timer-display">
+                <div class="time-unit">
+                    <span id="days">0</span>
+                    <span class="label">Dias</span>
+                </div>
+                <div class="time-unit">
+                    <span id="hours">0</span>
+                    <span class="label">Horas</span>
+                </div>
+                <div class="time-unit">
+                    <span id="minutes">0</span>
+                    <span class="label">Minutos</span>
+                </div>
+                <div class="time-unit">
+                    <span id="seconds">0</span>
+                    <span class="label">Segundos</span>
+                </div>
+            </div>
+            <p class="timer-footer">...e cada segundo vale a pena.</p>
+        </div>
+    </section>
+
+    <!-- Seção 2.6: Galeria Polaroids -->
+    <section class="gallery-section" id="gallery">
+        <h2 class="section-title" data-aos="fade-down">Nossos Momentos</h2>
+        <div class="polaroid-grid">
+            <div class="polaroid" data-aos="rotate-in" data-aos-delay="0">
+                <div class="polaroid-inner">
+                    <img src="assets/polaroid1.jpg" alt="Momento 1">
+                    <p class="caption">Aquele dia...</p>
+                </div>
+            </div>
+            <div class="polaroid" data-aos="rotate-in" data-aos-delay="200">
+                <div class="polaroid-inner">
+                    <img src="assets/polaroid2.jpg" alt="Momento 2">
+                    <p class="caption">Sorrisos</p>
+                </div>
+            </div>
+            <div class="polaroid" data-aos="rotate-in" data-aos-delay="400">
+                <div class="polaroid-inner">
+                    <img src="assets/polaroid3.jpg" alt="Momento 3">
+                    <p class="caption">Nós ❤️</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 2.7: 3 Motivos -->
+    <section class="reasons-section" id="reasons">
+        <h2 class="section-title" data-aos="fade-up">Por que você?</h2>
+        <div class="cards-grid">
+            <div class="reason-card" data-aos="flip-left" data-aos-delay="0">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"/></svg>
+                </div>
+                <h3>Sua Parceria</h3>
+                <p>A vida é bem melhor com alguém como você do lado.</p>
+            </div>
+            <div class="reason-card" data-aos="flip-left" data-aos-delay="200">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                </div>
+                <h3>Seu Jeitinho</h3>
+                <p>Uma pessoa tão intensa, mas também com tanto carinho para dar.</p>
+            </div>
+            <div class="reason-card" data-aos="flip-left" data-aos-delay="400">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                </div>
+                <h3>Sua Beleza</h3>
+                <p>Algo que chama tanta atenção que é impossível não ficar tonto.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Seção 3: O Pedido -->
+    <section class="proposal" id="proposal">
+        <div class="card" data-aos="flip-up" data-aos-duration="1000">
+            <h2 class="proposal-title">Aceita sair comigo?</h2>
+            <p class="proposal-text">Para um jantar especial no Maguje.</p>
+            <div class="buttons">
+                <button id="btn-yes" class="gradient-button">Sim, eu aceito</button>
+                <button id="btn-no" class="gradient-button gradient-button-variant">Não</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overlay de Celebração -->
+    <div id="celebration-overlay" class="hidden">
+        <div class="celebration-content">
+            <h2 class="celebration-title">Ela disse Sim!</h2>
+            <p class="celebration-text">Mal posso esperar por esse dia.</p>
+            
+            <div class="event-details">
+                <div class="detail-item">
+                    <span class="detail-label">Local</span>
+                    <span class="detail-value">Maguje</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Data</span>
+                    <span class="detail-value">23/11/2025</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Horário</span>
+                    <span class="detail-value">18:00</span>
+                </div>
+            </div>
+
+            <div class="vouchers">
+                <div class="voucher">💋 Vale Beijo</div>
+                <div class="voucher">💖 Vale Amor</div>
+                <div class="voucher">🌙 Vale Noite Inesquecível</div>
+            </div>
+            
+            <a href="https://www.instagram.com/maguje.rio/" target="_blank" class="gradient-button btn-instagram">Ver Local no Instagram</a>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="advanced.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
